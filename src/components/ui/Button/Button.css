@@ -1,0 +1,57 @@
+.btn {
+  --_bg-color: var(--denim);
+  --_text-color: var(--white-1);
+  --_fs: 0.875rem;
+
+  position: relative;
+  min-width: 6.0625rem;
+
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+
+  font-weight: 500;
+  font-size: var(--_fs, 1rem);
+
+  background-color: var(--_bg-color, black);
+  color: var(--_text-color, white);
+
+  border: transparent;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: transform 100ms;
+
+  &:active {
+    transform: translateY(0.125rem);
+  }
+}
+
+.btn[data-variant="primary"] {
+  --_bg-color: var(--denim);
+  --_text-color: var(--white-1);
+
+  &:hover,
+  &:focus-visible {
+    --_bg-color: hsl(213, 72%, 31%);
+  }
+}
+
+.btn[data-variant="secondary"] {
+  --_bg-color: transparent;
+  --_text-color: var(--grey);
+
+  &:hover,
+  &:focus-visible {
+    --_text-color: var(--denim);
+  }
+}
+
+.btn[data-variant="confirm"] {
+  --_bg-color: var(--purple);
+  --_text-color: var(--white-1);
+
+  &:hover,
+  &:focus-visible {
+    --_bg-color: hsl(243, 100%, 77%);
+  }
+}
