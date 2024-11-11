@@ -1,27 +1,4 @@
 /* Global CSS here */
-
-/* Fonts */
-@font-face {
-  font-family: "Ubuntu";
-  src: local("Ubuntu"), url("./assets/fonts/Ubuntu-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Ubuntu";
-  src: local("Ubuntu"), url("./assets/fonts/Ubuntu-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Ubuntu";
-  src: local("Ubuntu"), url("./assets/fonts/Ubuntu-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-}
-
 :root {
   /* Primary colours */
   --sky-blue: hsl(206, 94%, 87%);
@@ -38,11 +15,115 @@
   --very-light-grey: hsl(231, 100%, 99%);
 }
 
+/* CSS reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
 body {
-  /* Typography */
-  font-family: "Ubuntu", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
   line-height: 1.5;
-  font-weight: normal;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Generic */
+
+body {
+  /* Layout */
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* Spacing */
+  margin: 0;
+
+  /* Typography */
+  font-family: "Ubuntu", serif;
+  line-height: 1.5;
+  font-weight: 400;
 
   /* Colors */
   color: black;
@@ -54,23 +135,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -93,20 +157,10 @@ h1 {
 } */
 
 /* Utility */
-.u400 {
-  font-family: "Ubuntu", arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
 
-.u500 {
-  font-family: "Ubuntu", arial, sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.u700 {
-  font-family: "Ubuntu", arial, sans-serif;
-  font-weight: 700;
-  font-style: normal;
+/* Block */
+.attribution {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
 }
