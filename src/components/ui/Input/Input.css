@@ -1,0 +1,66 @@
+.form-control > .heading {
+  --_fs: 0.75rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: var(--_fs, 1rem);
+}
+
+.form-control > input {
+  --_fs: 0.9375rem;
+  --_border-color: var(--border-color);
+
+  /* Layout */
+  width: 100%;
+
+  /* Spacing */
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+
+  /* Typography */
+  font-size: var(--_fs, 1rem);
+  font-weight: 500;
+
+  /* Colors */
+  color: var(--denim);
+
+  /* Others */
+  border: 1px solid var(--_border-color);
+  border-radius: 0.25rem;
+
+  /* alternative */
+  &:not(:placeholder-shown):valid {
+    --_border-color: var(--green);
+  }
+
+  &:not(:placeholder-shown):invalid {
+    --_border-color: var(--red);
+  }
+
+  &:focus:invalid {
+    outline-color: var(--yellow);
+  }
+
+  /* &:user-valid {
+    --_border-color: var(--green);
+  }
+
+  &:user-invalid {
+    --_border-color: var(--red);
+  } */
+}
+
+.form-control .message {
+  display: none;
+  color: red;
+}
+
+.form-control:has(
+  input:not(:placeholder-shown):invalid
+):has(
+  input:not(:placeholder-shown):not(:focus)
+) .message {
+  display: block;
+}
