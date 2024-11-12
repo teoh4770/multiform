@@ -1,4 +1,9 @@
-.form-control > .heading {
+.formControl {
+  display: grid;
+  row-gap: 0.1875rem;
+}
+
+.heading {
   --_fs: 0.75rem;
 
   display: flex;
@@ -8,7 +13,7 @@
   font-size: var(--_fs, 1rem);
 }
 
-.form-control > input {
+.inputBox {
   --_fs: 0.9375rem;
   --_border-color: var(--border-color);
 
@@ -52,15 +57,14 @@
   } */
 }
 
-.form-control .message {
-  display: none;
+.message {
+  opacity: 0;
   color: red;
 }
 
-.form-control:has(
-  input:not(:placeholder-shown):invalid
-):has(
-  input:not(:placeholder-shown):not(:focus)
-) .message {
-  display: block;
+.formControl:has(.inputBox:not(:placeholder-shown):invalid):has(
+    .inputBox:not(:placeholder-shown):not(:focus)
+  )
+  .message {
+  opacity: 1;
 }

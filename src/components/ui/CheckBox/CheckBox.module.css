@@ -1,0 +1,88 @@
+.formControl:has(.checkbox) {
+  display: grid;
+  grid-template-columns: 1em auto;
+  align-items: center;
+  column-gap: 1em;
+  row-gap: 0.1875rem;
+}
+
+.checkbox {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+.checkbox {
+  --_size: 0em;
+  --_border-size: 0.15em;
+  --_bg-color: transparent;
+
+  appearance: none;
+  background-color: var(--_bg-color);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  transition: 120ms background-color ease-in-out;
+
+  /* Place the checkmark at the center */
+  display: grid;
+  place-content: center;
+
+  cursor: pointer;
+}
+
+.checkbox::before {
+  --_size: 0.6em;
+  --_color: var(--white-2);
+
+  content: "";
+  width: var(--_size);
+  height: var(--_size);
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--_color);
+
+  /* Creating a checkmark with clip-path */
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox:checked {
+  --_bg-color: var(--purple);
+}
+
+.checkbox:checked:before {
+  transform: scale(1);
+}
+
+.checkbox:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+.label,
+.sublabel {
+  text-align: left;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--denim);
+}
+
+.sublabel {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--grey);
+  line-height: 1.25rem;
+}

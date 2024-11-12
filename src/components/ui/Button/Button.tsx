@@ -1,4 +1,4 @@
-import "./Button.css";
+import style from "./Button.module.css";
 
 interface IButton {
   type: "submit" | "reset" | "button" | undefined;
@@ -19,7 +19,7 @@ function Button({
   caption = "button text",
 }: IButton) {
   return (
-    <button className="btn" type={type} data-variant={variant}>
+    <button className={style.button} type={type} data-variant={variant}>
       {caption}
     </button>
   );

@@ -1,4 +1,4 @@
-.btn {
+.button {
   --_bg-color: var(--denim);
   --_text-color: var(--white-1);
   --_fs: 0.875rem;
@@ -26,9 +26,9 @@
   }
 }
 
-.btn[data-variant="primary"] {
+.button[data-variant="primary"] {
   --_bg-color: var(--denim);
-  --_text-color: var(--white-1);
+  --_text-color: var(--white-2);
 
   &:hover,
   &:focus-visible {
@@ -36,7 +36,7 @@
   }
 }
 
-.btn[data-variant="secondary"] {
+.button[data-variant="secondary"] {
   --_bg-color: transparent;
   --_text-color: var(--grey);
 
@@ -46,9 +46,9 @@
   }
 }
 
-.btn[data-variant="confirm"] {
+.button[data-variant="confirm"] {
   --_bg-color: var(--purple);
-  --_text-color: var(--white-1);
+  --_text-color: var(--white-2);
 
   &:hover,
   &:focus-visible {
