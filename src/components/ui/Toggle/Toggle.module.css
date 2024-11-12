@@ -1,0 +1,66 @@
+/* turn checkbox into a toggle button */
+
+/* Define its container */
+.toggleContainer {
+  --_width: 2.375rem;
+  --_height: 1.25rem;
+
+  display: inline-block;
+  width: var(--_width);
+  height: var(--_height);
+  position: relative;
+  background-color: var(--denim);
+  border-radius: 0.625rem;
+  cursor: pointer;
+}
+
+/* turn input into a toggle circle */
+
+.toggleBoxContainer {
+  --_containerSpace: 0.25rem;
+
+  display: grid;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  padding-inline: var(--_containerSpace);
+  border-radius: inherit;
+}
+
+/* Remove the original checkbox appearance */
+.toggleBox {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+/* Recreate toggleBox */
+.toggleBox{
+  --_toggleBoxSize: 0.75rem;
+  --_offset: calc(
+    var(--_width) - (var(--_containerSpace) * 2) - var(--_toggleBoxSize)
+  );
+
+  width: var(--_toggleBoxSize, 1rem);
+  height: var(--_toggleBoxSize, 1rem);
+  border-radius: 50%;
+  transition: transform 150ms;
+}
+
+/* toggleBox checked status */
+.toggleBox:not(:checked) {
+  transform: translateX(0);
+}
+
+.toggleBox:checked {
+  transform: translateX(var(--_offset));
+}
+
+.toggleBox:focus {
+  outline: max(2px, 0.15em) solid lightblue;
+  outline-offset: max(2px, 0.15em);
+}
