@@ -4,13 +4,29 @@ interface ICheckBox {
   name: string;
   label: string;
   sublabel?: string;
-  // pass in the value
+  className?: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function CheckBox({ name, label = "this is a label", sublabel }: ICheckBox) {
+function CheckBox({
+  name,
+  label = "this is a label",
+  sublabel,
+  className,
+  checked,
+  onChange,
+}: ICheckBox) {
   return (
-    <label htmlFor={name} className={style.formControl}>
-      <input type="checkbox" id={name} className={style.checkbox} name={name} />
+    <label htmlFor={name} className={`${style.formControl} ${className}`}>
+      <input
+        type="checkbox"
+        id={name}
+        className={style.checkbox}
+        name={name}
+        onChange={onChange}
+        checked={checked}
+      />
       <div>
         <p className={style.label}>{label}</p>
         <p className={style.sublabel} hidden={!sublabel}>
@@ -22,3 +38,5 @@ function CheckBox({ name, label = "this is a label", sublabel }: ICheckBox) {
 }
 
 export { CheckBox };
+
+// I want to transform checkbox from pure ui component to interactable

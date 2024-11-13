@@ -64,7 +64,7 @@
   transform: scale(1);
 }
 
-.checkbox:focus {
+.checkbox:focus-visible {
   outline: max(2px, 0.15em) solid currentColor;
   outline-offset: max(2px, 0.15em);
 }
