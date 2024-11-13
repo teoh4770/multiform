@@ -1,0 +1,34 @@
+.card {
+  --_padding: 1rem;
+  --_border-width: 1px;
+  --_color: var(--denim);
+  --_bg-color: transparent;
+  --_border-color: var(--border-color);
+
+  padding: var(--_padding, 1rem);
+
+  background-color: var(--_bg-color, transparent);
+  color: var(--_color, black);
+
+  border: var(--_border-width) solid var(--_border-color);
+  border-radius: 0.5rem;
+
+  /* ↓ Always apply the transparent outline, for high contrast mode */
+  outline: var(--_border-width) transparent;
+  outline-offset: calc(var(--_border-width) * -1);
+}
+
+.card * {
+  color: inherit;
+}
+
+.card:has(input[type="checkbox"]),
+.card:has([data-active]) {
+  cursor: pointer;
+}
+
+.card:has(input[type="checkbox"]:checked),
+.card:has([data-active="true"]) {
+  --_bg-color: var(--very-light-grey);
+  --_border-color: var(--border-color-active);
+}

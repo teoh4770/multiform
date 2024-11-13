@@ -9,3 +9,6 @@ export { CheckBox };
 
 import { Toggle } from "./Toggle/Toggle";
 export { Toggle };
+
+import { Card } from "./Card/Card";
+export { Card };

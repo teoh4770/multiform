@@ -15,7 +15,12 @@
   --grey: hsl(231, 11%, 63%);
   --light-grey: hsl(229, 24%, 87%);
   --very-light-grey: hsl(231, 100%, 99%);
+
+  /* Specific component colours */
   --border-color: hsl(231, 23%, 87%);
+  --border-color-active: var(--purple);
+  --placeholder-primary: #eeeeee;
+  --placeholder-secondary: #cccccc;
 }
 
 /* CSS reset */
@@ -165,4 +170,17 @@ h1 {
   position: absolute;
   bottom: 0.5rem;
   left: 0.5rem;
+}
+
+/* https://web.dev/patterns/web-vitals-patterns/placeholders/placeholders#js */
+@keyframes placeholder {
+  0% {
+    background-color: var(--placeholder-primary);
+  }
+  50% {
+    background-color: var(--placeholder-secondary);
+  }
+  100% {
+    background-color: var(--placeholder-primary);
+  }
 }

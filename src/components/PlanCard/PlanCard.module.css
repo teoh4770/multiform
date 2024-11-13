@@ -1,0 +1,60 @@
+.planCard {
+  --_gap: 0.875rem;
+  --_columns: auto 1fr;
+
+  display: grid;
+  grid-template-columns: var(--_columns, 1fr);
+  gap: var(--_gap, 1rem);
+  align-items: start;
+}
+
+.imageContainer {
+  --_size: 2.5rem;
+
+  position: relative;
+  top: 4px;
+  width: var(--_size, 1rem);
+  height: var(--_size, 1rem);
+
+  background-color: var(--placeholder-primary);
+
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.image {
+  /* space at mobile:  14px*/
+  /* space at desktop: 39px */
+  /* margin-bottom: var(--space-bottom, 1rem); */
+  width: 100%;
+  background-color: var(--grey);
+  border-radius: 50%;
+}
+
+.title {
+  --_fs: 1rem;
+
+  font-size: var(--_fs, 1rem);
+  font-weight: 500;
+  color: var(--denim);
+}
+
+.price {
+  --_fs: 0.875rem;
+  --_lh: 1.25rem;
+
+  font-size: var(--_fs, 1rem);
+  font-weight: 400;
+  color: var(--grey);
+  line-height: var(--_lh, 1.25rem);
+}
+
+.info {
+  --_fs: 0.75rem;
+  --_lh: 1.25rem;
+
+  font-size: var(--_fs, 1rem);
+  font-weight: 400;
+  color: var(--denim);
+  line-height: var(--_lh, 1rem);
+}
