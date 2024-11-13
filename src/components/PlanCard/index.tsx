@@ -30,13 +30,10 @@ function PlanCard({
     yearlyExtraInfoContent = <p className={style.info}>{yearlyExtraInfo}</p>;
   }
 
+  // due to padding inside, we can't click on the card where the padding exists
   return (
-    <Card>
-      <div
-        className={style.planCard}
-        onClick={onSelect}
-        data-active={isSelected}
-      >
+    <Card className={style.card}>
+      <div className={style.plan} onClick={onSelect} data-active={isSelected}>
         <div className={style.imageContainer}>
           <img className={style.image} src={imgUrl} alt="" />
         </div>
