@@ -1,0 +1,34 @@
+.stepIndicator {
+  --_bg: transparent;
+  --_color: var(--white);
+  --_border-color: var(--white);
+
+  display: grid;
+  place-items: center;
+
+  width: 2.0625rem;
+  height: 2.0625rem;
+  aspect-ratio: 1;
+
+  font-size: 0.875rem;
+  font-weight: 700;
+
+  background-color: var(--_bg, white);
+  color: var(--_color, white);
+
+  border: 1px solid var(--_border-color, white);
+  border-radius: 50%;
+
+  -webkit-user-select: none; /* Safari and older versions of Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard */
+
+  pointer-events: none; /* Prevent mouse interactions */
+}
+
+.stepIndicator[data-active="true"] {
+  --_bg: var(--sky-blue);
+  --_color: var(--denim);
+  --_border-color: transparent;
+}
