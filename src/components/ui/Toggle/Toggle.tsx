@@ -3,19 +3,22 @@ import style from "./Toggle.module.css";
 interface IToggle {
   name: string;
   label?: string;
-  // isToggled: boolean;
+  className?: string;
+  isToggled: boolean;
+  onToggled: () => void;
 }
 
-function Toggle({ name, label }: IToggle) {
+function Toggle({ name, label, className, isToggled, onToggled }: IToggle) {
   return (
-    <label htmlFor={name} className={style.toggleContainer}>
+    <label htmlFor={name} className={`${style.toggleContainer} ${className}`}>
       <div className={style.toggleBoxContainer}>
         <input
           type="checkbox"
           id={name}
           className={style.toggleBox}
           name={name}
-          // take togglebox value
+          checked={isToggled}
+          onChange={onToggled}
         />
       </div>
       <p hidden>{label}</p>

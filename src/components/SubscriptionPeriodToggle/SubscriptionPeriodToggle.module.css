@@ -1,0 +1,22 @@
+.subscriptionPeriodToggle {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.label {
+  --_fs: 0.875rem;
+  --_color: var(--grey);
+
+  font-size: var(--_fs, 1rem);
+  font-weight: 500;
+  color: var(--_color, black);
+  user-select: none;
+}
+
+.label[data-monthly="true"] {
+  --_color: var(--denim);
+}
+
+.label[data-yearly="true"] {
+  --_color: var(--denim);
+}
