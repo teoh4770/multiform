@@ -1,0 +1,8 @@
+.steps {
+  /* will be removed */
+  --_space: 1rem;
+
+  background-color: darkblue;
+  display: grid;
+  gap: var(--_space, 1rem);
+}

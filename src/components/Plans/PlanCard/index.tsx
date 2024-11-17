@@ -1,4 +1,4 @@
-import { Card } from "../ui";
+import { Card } from "../../ui";
 import style from "./PlanCard.module.css";
 
 type Frequency = "monthly" | "yearly";

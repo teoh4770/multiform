@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { Card, CheckBox } from "../ui";
+import { Card, CheckBox } from "../../ui";
 import style from "./AddOnCard.module.css";
 
 type Frequency = "monthly" | "yearly";

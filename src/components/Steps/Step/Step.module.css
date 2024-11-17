@@ -1,0 +1,22 @@
+.stepContainer {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.info {
+  /* only show info in tablet or desktop mode */
+  text-transform: uppercase;
+}
+
+.sublabel {
+  font-size: 0.75rem;
+  color: var(--pastel-blue);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.0625rem;
+  color: white;
+}

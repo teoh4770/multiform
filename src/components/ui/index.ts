@@ -12,3 +12,6 @@ export { Toggle };
 
 import { Card } from "./Card/Card";
 export { Card };
+
+import { StepIndicator } from "./StepIndicator";
+export { StepIndicator };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AddOnCard } from "../AddOnCard";
+import { AddOnCard } from "./AddOnCard";
 
 type AddOnOptions = "online-service" | "larger-storage" | "custom-profile";
 
@@ -53,8 +53,8 @@ function AddOns({ monthly }: { monthly: boolean }) {
   const [addOnOptionsState, setAddOnOptionsState] = useState(addOnOptions);
 
   useEffect(() => {
-    console.log(addOnOptionsState)
-  }, [addOnOptionsState])
+    console.log(addOnOptionsState);
+  }, [addOnOptionsState]);
 
   return (
     <div>
