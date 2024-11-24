@@ -21,6 +21,24 @@
   --border-color-active: var(--purple);
   --placeholder-primary: #eeeeee;
   --placeholder-secondary: #cccccc;
+
+  /* Viewport size */
+  /* --mobile: */
+  --is-mobile: true;
+  --is-tablet: false;
+  --is-desktop: false;
+
+  /* tablet */
+  @media (width >= 500px) {
+    --is-mobile: false;
+    --is-tablet: true;
+  }
+
+  /* desktop */
+  @media (width >= 1080px) {
+    --is-tablet: true;
+    --is-desktop: true;
+  }
 }
 
 /* CSS reset */

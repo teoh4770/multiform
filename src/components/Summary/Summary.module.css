@@ -1,0 +1,77 @@
+.summary {
+  --_fs: 0.875rem;
+
+  display: grid;
+  gap: 0.5rem;
+  font-size: var(--_fs, 1rem);
+
+  & > div {
+    --_p: 1rem;
+    padding: var(--_p, 1rem);
+    border-radius: 0.5rem;
+  }
+
+  & > div:first-of-type {
+    display: grid;
+    gap: 0.75rem;
+    background-color: var(--very-light-grey);
+  }
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lineBreak {
+  margin: 0;
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--grey);
+}
+
+.label {
+  color: var(--grey);
+}
+
+.price {
+  line-height: 1.25rem;
+  color: var(--denim);
+}
+
+.subscription {
+  --_fs: 1rem;
+
+  .label {
+    font-weight: 500;
+    color: var(--denim);
+  }
+
+  .link {
+    margin-top: 0.1875rem;
+    line-height: 1.25rem;
+    color: var(--grey);
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 0.125rem;
+  }
+
+  &.price {
+    font-weight: 700;
+    font-size: var(--_fs, 1rem);
+  }
+}
+
+.total {
+  --_fs: 1rem;
+
+  padding-bottom: 0 !important;
+
+  &.price {
+    font-weight: 700;
+    font-size: var(--_fs, 1rem);
+    color: var(--purple);
+  }
+}
