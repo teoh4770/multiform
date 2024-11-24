@@ -7,6 +7,11 @@
 .info {
   /* only show info in tablet or desktop mode */
   text-transform: uppercase;
+  display: none;
+
+  @container style(--is-tablet: true) {
+    display: inline-block;
+  }
 }
 
 .sublabel {

@@ -13,9 +13,8 @@ function Steps({ stepList, currentStep }: ISteps) {
   return (
     <ol className={style.steps} role="list">
       {stepList.map((step, i) => (
-        <li>
+        <li key={i}>
           <Step
-            key={i}
             caption={step}
             stepCount={i + 1}
             isCurrentStep={currentStep === i + 1}

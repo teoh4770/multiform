@@ -1,8 +1,13 @@
 .steps {
   /* will be removed */
   --_space: 1rem;
+  --_flex-direction: row;
 
-  background-color: darkblue;
-  display: grid;
+  display: flex;
+  flex-direction: var(--_flex-direction, row);
   gap: var(--_space, 1rem);
+
+  @container style(--is-tablet: true) {
+    --_flex-direction: column;
+  }
 }

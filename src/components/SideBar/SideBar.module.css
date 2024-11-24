@@ -1,0 +1,42 @@
+/* mobile sidebar */
+/* content: list of steps indicators */
+/* background: bg-sidebar mobile.svg */
+
+/* desktop sidebar */
+/* content: list of steps indicators + detail */
+/* background: bg-sidebar desktop.svg */
+
+/* mobile */
+.sideBar {
+  /* Layout */
+  --_min-height: 10.75rem;
+  --_padding: 2rem;
+  --_justify: center;
+  display: flex;
+  justify-content: var(--_justify, center);
+  padding: var(--_padding, 2rem);
+
+  min-height: var(--_min-height, 10rem);
+  width: 100%;
+
+  /* Spacing */
+
+  /* Others */
+  background-image: url("/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @container style(--is-tablet: true) {
+    --_justify: flex-start;
+  }
+
+  @container style(--is-desktop: true) {
+    background-image: url("/bg-sidebar-desktop.svg");
+    min-height: 100vh;
+    max-width: 275px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+/* desktop */
