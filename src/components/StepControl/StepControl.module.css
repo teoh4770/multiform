@@ -1,0 +1,12 @@
+.card {
+  --_padding: 1rem;
+  --border-color: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  /* If the parent container is set to grid / flex
+     then the whole stepcontrol will move to the bottom */
+  margin-top: auto;
+}
