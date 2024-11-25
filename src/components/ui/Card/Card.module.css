@@ -1,7 +1,5 @@
 .card {
-  --_padding: 1rem;
   --_border-width: 1px;
-  --_bg-color: transparent;
   --_border-color: var(--border-color);
 
   padding: var(--_padding, 1rem);

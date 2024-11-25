@@ -1,6 +1,7 @@
 .card {
   --_padding: 1rem;
-  --border-color: transparent;
+  --_bg-color: white;
+  --_border-color: transparent;
 
   display: flex;
   justify-content: space-between;

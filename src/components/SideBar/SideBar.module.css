@@ -16,7 +16,9 @@
   justify-content: var(--_justify, center);
   padding: var(--_padding, 2rem);
 
-  min-height: var(--_min-height, 10rem);
+  min-height: var(--_min-height, 10.75rem);
+  max-height: var(--_max-height, 10.75rem);
+
   width: 100%;
 
   /* Spacing */
@@ -38,5 +40,3 @@
     background-size: contain;
   }
 }
-
-/* desktop */
