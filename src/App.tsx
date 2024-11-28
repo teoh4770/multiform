@@ -1,43 +1,81 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { useState } from "react";
 import "./App.css";
 
-import { FormSection, SideBar, StepControl } from "./components";
-import { Input } from "./components/ui";
+import {
+  AddOns,
+  FormSection,
+  PersonalInfoForm,
+  Plans,
+  Sidebar,
+  StepControl,
+  Summary,
+} from "./components";
+import { Steps } from "./components/Steps";
+
+interface IFormStep {
+  heading: string;
+  subheading: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: (props: any) => JSX.Element; // Component can accept any props
+}
+
+const formSteps: IFormStep[] = [
+  {
+    heading: "Personal info",
+    subheading: "Please provide your name, email address, and phone number.",
+    component: PersonalInfoForm,
+  },
+  {
+    heading: "Select your plan",
+    subheading: "You have the option of monthly or yearly billing.",
+    component: Plans,
+  },
+  {
+    heading: "Pick add-ons",
+    subheading: "Add-ons help enhance your gaming experience.",
+    component: AddOns,
+  },
+  {
+    heading: "Finishing up",
+    subheading: "Double-check everything looks OK before confirming.",
+    // for summary to get the rest of the data, i will need to setup the global state
+    // that contain the rest of the data
+    component: Summary,
+  },
+];
 
 function App() {
+  const [currentStep, setCurrentStep] = useState(0);
+  const stepCount = formSteps.length;
+
+  const {
+    heading,
+    subheading,
+    component: StepComponent,
+  } = formSteps[currentStep];
+
+  const getPreviousStep = () => setCurrentStep((step) => Math.max(0, step - 1));
+
+  const getNextStep = () => setCurrentStep((step) => (step + 1) % stepCount);
+
   return (
     <>
-      <SideBar />
+      <Sidebar>
+        <Steps
+          stepList={["Your Info", "Select Plan", "Add-Ons", "Summary"]}
+          currentStep={currentStep}
+        />
+      </Sidebar>
 
-      <FormSection
-        heading="Personal info"
-        subheading="Please provide your name, email address, and phone number."
-      >
-        {/* Part that change */}
-        <div>
-          <Input
-            type="text"
-            name="name"
-            label="Name"
-            placeholder="e.g. Stephen King"
-          />
-          <Input
-            type="email"
-            name="email"
-            label="Email Address"
-            placeholder="e.g. stephenking@lorem.com"
-          />
-          <Input
-            type="tel"
-            name="phone"
-            label="Phone Number"
-            placeholder="e.g. +1 234 567 890"
-          />
-        </div>
+      <FormSection heading={heading} subheading={subheading}>
+        <StepComponent />
       </FormSection>
 
-      <StepControl  />
+      <StepControl
+        currentStep={currentStep}
+        handlePreviousStep={getPreviousStep}
+        handleNextStep={getNextStep}
+      />
     </>
   );
 }
