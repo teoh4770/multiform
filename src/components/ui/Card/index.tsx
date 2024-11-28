@@ -8,7 +8,11 @@ interface ICard {
 function Card({ children, className }: PropsWithChildren<ICard>) {
   // how to connect child state with parent state
 
-  return <article className={`${style.card} ${className}`}>{children}</article>;
+  return (
+    <article className={`${style.card} ${className}`}>
+      {children}
+    </article>
+  );
 }
 
 export { Card };

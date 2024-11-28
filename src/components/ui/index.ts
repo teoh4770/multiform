@@ -10,7 +10,7 @@ export { CheckBox };
 import { Toggle } from "./Toggle/Toggle";
 export { Toggle };
 
-import { Card } from "./Card/Card";
+import { Card } from "./Card";
 export { Card };
 
 import { StepIndicator } from "./StepIndicator";
