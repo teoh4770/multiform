@@ -1,6 +1,9 @@
 .subscriptionPeriodToggle {
   display: flex;
   gap: 1.5rem;
+  justify-content: center;
+  background-color: var(--very-light-grey);
+  padding: 0.875rem;
 }
 
 .label {
