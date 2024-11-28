@@ -16,8 +16,8 @@ function Steps({ stepList, currentStep }: ISteps) {
         <li key={i}>
           <Step
             caption={step}
-            stepCount={i + 1}
-            isCurrentStep={currentStep === i + 1}
+            stepCount={i + 1} // think of it as label, so base 1
+            isCurrentStep={currentStep === i} // base 0
           />
         </li>
       ))}
