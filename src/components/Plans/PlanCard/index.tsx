@@ -32,7 +32,7 @@ function PlanCard({
 
   // due to padding inside, we can't click on the card where the padding exists
   return (
-    <Card className={style.card}>
+    <Card className={style.planCard}>
       <div className={style.plan} onClick={onSelect} data-active={isSelected}>
         <div className={style.imageContainer}>
           <img className={style.image} src={imgUrl} alt="" />

@@ -1,0 +1,10 @@
+.plans {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.planCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { PlanCard } from "./PlanCard";
+import { SubscriptionPeriodToggle } from "../SubscriptionPeriodToggle";
+import style from "./Plans.module.css"
 
 type PlanOptions = "arcade" | "advanced" | "pro";
 
@@ -47,18 +49,22 @@ function Plans({ monthly }: { monthly: boolean }) {
   const [selectedPlan, setSelectedPlan] = useState<PlanOptions>("arcade");
 
   return (
-    <div>
-      {availablePlans.map((plan, i) => (
-        <PlanCard
-          key={i}
-          title={plan.title}
-          price={monthly ? plan.price.monthly : plan.price.yearly}
-          frequency={monthly ? "monthly" : "yearly"}
-          imgUrl={plan.imgUrl}
-          isSelected={selectedPlan === plan.name}
-          onSelect={() => setSelectedPlan(plan.name)}
-        />
-      ))}
+    <div className={style.plans}>
+      <div className={style.planCards}>
+        {availablePlans.map((plan, i) => (
+          <PlanCard
+            key={i}
+            title={plan.title}
+            price={monthly ? plan.price.monthly : plan.price.yearly}
+            frequency={monthly ? "monthly" : "yearly"}
+            imgUrl={plan.imgUrl}
+            isSelected={selectedPlan === plan.name}
+            onSelect={() => setSelectedPlan(plan.name)}
+          />
+        ))}
+      </div>
+
+      <SubscriptionPeriodToggle />
     </div>
   );
 }
