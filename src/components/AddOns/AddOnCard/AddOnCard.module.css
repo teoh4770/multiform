@@ -1,5 +1,20 @@
-.card {
+.addOnCard {
   position: relative;
+
+  &:has(input[type="checkbox"]),
+  &:has([data-active]) {
+    cursor: pointer;
+  }
+
+  &:has(input[type="checkbox"]:checked),
+  &:has([data-active="true"]) {
+    --_bg-color: var(--very-light-grey);
+    --_border-color: var(--border-color-active);
+  }
+}
+
+.addOnCard + .addOnCard {
+  margin-top: 1rem;
 }
 
 .addOn {

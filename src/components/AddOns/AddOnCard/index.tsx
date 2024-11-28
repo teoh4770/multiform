@@ -27,7 +27,7 @@ function AddOnCard({
   const planPeriod = frequency === "monthly" ? "mo" : "yr";
 
   return (
-    <Card className={style.card}>
+    <Card className={style.addOnCard}>
       <div className={style.addOn}>
         <CheckBox
           name={name}
