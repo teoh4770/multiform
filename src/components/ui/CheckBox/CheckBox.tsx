@@ -27,7 +27,7 @@ function CheckBox({
         onChange={onChange}
         checked={checked}
       />
-      <div>
+      <div className={style.content}>
         <p className={style.label}>{label}</p>
         <p className={style.sublabel} hidden={!sublabel}>
           {sublabel}

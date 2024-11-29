@@ -69,6 +69,11 @@
   outline-offset: max(2px, 0.15em);
 }
 
+.content {
+  display: grid;
+  row-gap: 0.25rem;
+}
+
 .label,
 .sublabel {
   text-align: left;
