@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 
 import {
@@ -9,15 +8,10 @@ import {
   Sidebar,
   StepControl,
   Summary,
+  Steps,
 } from "./components";
-import { Steps } from "./components/Steps";
-
-interface IFormStep {
-  heading: string;
-  subheading: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: (props: any) => JSX.Element; // Component can accept any props
-}
+import { useState } from "react";
+import { IFormStep } from "./types";
 
 const formSteps: IFormStep[] = [
   {
@@ -38,16 +32,14 @@ const formSteps: IFormStep[] = [
   {
     heading: "Finishing up",
     subheading: "Double-check everything looks OK before confirming.",
-    // for summary to get the rest of the data, i will need to setup the global state
-    // that contain the rest of the data
     component: Summary,
   },
 ];
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
-  const stepCount = formSteps.length;
 
+  const stepCount = formSteps.length;
   const {
     heading,
     subheading,
@@ -55,7 +47,6 @@ function App() {
   } = formSteps[currentStep];
 
   const getPreviousStep = () => setCurrentStep((step) => Math.max(0, step - 1));
-
   const getNextStep = () => setCurrentStep((step) => (step + 1) % stepCount);
 
   return (

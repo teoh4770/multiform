@@ -18,3 +18,6 @@ export { AddOns };
 
 import { Summary } from "./Summary";
 export { Summary };
+
+import { Steps } from "./Steps";
+export { Steps };

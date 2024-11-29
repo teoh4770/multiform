@@ -1,65 +1,37 @@
-import { useState } from "react";
 import { PlanCard } from "./PlanCard";
 import { SubscriptionPeriodToggle } from "../SubscriptionPeriodToggle";
-import style from "./Plans.module.css"
+import style from "./Plans.module.css";
+import { useAtom, useAtomValue } from "jotai";
+import { isMonthlyPaymentAtom, planAtom } from "../../lib";
+import { IPlan } from "../../types";
 
-type PlanOptions = "arcade" | "advanced" | "pro";
+function Plans() {
+  const isMonthly = useAtomValue(isMonthlyPaymentAtom);
+  const [plans, setPlans] = useAtom(planAtom);
 
-interface IAvailablePlan {
-  title: string;
-  name: PlanOptions;
-  imgUrl: string;
-  price: {
-    monthly: number;
-    yearly: number;
+  const handleSelectedPlan = (selectedPlan: IPlan) => {
+    setPlans((plans) =>
+      plans.map((plan) => {
+        return {
+          ...plan,
+          selected: plan.name === selectedPlan.name,
+        };
+      }),
+    );
   };
-}
-
-const availablePlans: IAvailablePlan[] = [
-  {
-    title: "Arcade",
-    name: "arcade",
-    imgUrl: "/icon-arcade.svg",
-    price: {
-      monthly: 9,
-      yearly: 90,
-    },
-  },
-  {
-    title: "Advanced",
-    name: "advanced",
-    imgUrl: "/icon-advanced.svg",
-    price: {
-      monthly: 12,
-      yearly: 120,
-    },
-  },
-  {
-    title: "Pro",
-    name: "pro",
-    imgUrl: "/icon-pro.svg",
-    price: {
-      monthly: 15,
-      yearly: 150,
-    },
-  },
-];
-
-function Plans({ monthly }: { monthly: boolean }) {
-  const [selectedPlan, setSelectedPlan] = useState<PlanOptions>("arcade");
 
   return (
     <div className={style.plans}>
       <div className={style.planCards}>
-        {availablePlans.map((plan, i) => (
+        {plans.map((plan, i) => (
           <PlanCard
             key={i}
             title={plan.title}
-            price={monthly ? plan.price.monthly : plan.price.yearly}
-            frequency={monthly ? "monthly" : "yearly"}
+            price={isMonthly ? plan.price.monthly : plan.price.yearly}
+            frequency={isMonthly ? "monthly" : "yearly"}
             imgUrl={plan.imgUrl}
-            isSelected={selectedPlan === plan.name}
-            onSelect={() => setSelectedPlan(plan.name)}
+            isSelected={plan.selected}
+            onSelect={() => handleSelectedPlan(plan)}
           />
         ))}
       </div>

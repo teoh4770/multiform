@@ -24,7 +24,7 @@ const planAtom = atom<IPlan[]>([
       monthly: 9,
       yearly: 90,
     },
-    selected: false,
+    selected: true,
   },
   {
     title: "Advanced",

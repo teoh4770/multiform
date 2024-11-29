@@ -34,4 +34,11 @@ interface ISummary {
   totalPrice: number;
 }
 
-export type { IUserInfo, IAddOn, IPlan, ISummary };
+interface IFormStep {
+  heading: string;
+  subheading: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: (props: any) => JSX.Element; // Component can accept any props
+}
+
+export type { IUserInfo, IAddOn, IPlan, ISummary, IFormStep };

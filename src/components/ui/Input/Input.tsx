@@ -1,16 +1,11 @@
-// const inputs = [
-//   { label: 'First Name', type: 'text', name: 'firstName' },
-//   { label: 'Last Name', type: 'text', name: 'lastName' },
-//   { label: 'Email', type: 'email', name: 'email' }
-// ];
-
 import style from "./Input.module.css";
 
 interface IInput {
   name: string;
   type: "text" | "email" | "tel";
   label: string;
-  // value: string; // Temporary not put the value first
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   required?: boolean;
   pattern?: string;
@@ -19,14 +14,12 @@ interface IInput {
   message?: string;
 }
 
-// !this way is kinda limited, how should i able to display the respective error message
-// !for example, if the user didn't actually fill the required form, I should render a required message ("This field is required")
-
-// I literally use the interface of the HTMLInputElement...
 function Input({
   name,
   type = "text",
   label = "place your label here",
+  value,
+  onChange,
   placeholder,
   required = false,
   minLength,
@@ -44,6 +37,8 @@ function Input({
       <input
         id={name}
         className={style.inputBox}
+        value={value}
+        onChange={(e) => onChange(e)}
         name={name}
         type={type}
         placeholder={placeholder}
