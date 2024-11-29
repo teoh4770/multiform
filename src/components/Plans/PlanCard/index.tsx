@@ -38,7 +38,7 @@ function PlanCard({
           <img className={style.image} src={imgUrl} alt="" />
         </div>
 
-        <div>
+        <div className={style.content}>
           <p className={style.title}>{title}</p>
           <p className={style.price}>
             ${price}/{planPeriod}
@@ -49,14 +49,5 @@ function PlanCard({
     </Card>
   );
 }
-
-// interface IPlanWithHandler {
-//   plan: IPlan;
-//   onClick: (planName: PlanOptions) => void;
-// }
-
-// function PlanWithHandler({ plan, onClick }: IPlanWithHandler) {
-
-// }
 
 export { PlanCard };

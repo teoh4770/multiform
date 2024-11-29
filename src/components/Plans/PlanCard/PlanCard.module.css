@@ -61,6 +61,11 @@
   border-radius: 50%;
 }
 
+.content {
+  display: grid;
+  row-gap: 0.25rem;
+}
+
 .title {
   --_fs: 1rem;
 
