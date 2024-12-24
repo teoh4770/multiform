@@ -6,6 +6,7 @@ interface IStepControl {
   currentStep: number;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
+  disabled?: boolean;
 }
 
 function StepControl({
@@ -13,6 +14,7 @@ function StepControl({
   currentStep,
   handleNextStep,
   handlePreviousStep,
+  disabled,
 }: IStepControl) {
   return (
     <Card className={`${style.card} ${className}`}>
@@ -32,6 +34,7 @@ function StepControl({
         variant="primary"
         caption="Next Step"
         clickHandler={handleNextStep}
+        disabled={disabled}
       />
       {/* <Button type="button" variant="confirm" caption="Confirm" /> */}
     </Card>

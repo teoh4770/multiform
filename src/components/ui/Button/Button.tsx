@@ -5,6 +5,7 @@ interface IButton {
   variant: "primary" | "secondary" | "confirm";
   caption: string;
   clickHandler?: () => void;
+  disabled?: boolean;
 }
 
 function Button({
@@ -12,6 +13,7 @@ function Button({
   type = "button",
   caption = "button text",
   clickHandler,
+  disabled,
 }: IButton) {
   return (
     <button
@@ -19,6 +21,7 @@ function Button({
       type={type}
       data-variant={variant}
       onClick={clickHandler}
+      disabled={disabled}
     >
       {caption}
     </button>

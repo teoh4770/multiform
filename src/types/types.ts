@@ -37,8 +37,9 @@ interface ISummary {
 interface IFormStep {
   heading: string;
   subheading: string;
+  imageUrl?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: (props: any) => JSX.Element; // Component can accept any props
+  component?: (props: any) => JSX.Element; // Component can accept any props
 }
 
 export type { IUserInfo, IAddOn, IPlan, ISummary, IFormStep };

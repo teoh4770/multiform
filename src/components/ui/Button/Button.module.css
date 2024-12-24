@@ -24,6 +24,11 @@
   &:active {
     transform: translateY(0.125rem);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: lightgrey;
+  }
 }
 
 .button[data-variant="primary"] {
