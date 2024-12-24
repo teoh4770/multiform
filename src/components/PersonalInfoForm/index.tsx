@@ -24,6 +24,8 @@ function PersonalInfoForm() {
     phone: "",
   });
 
+  const requiredFields = ["name", "email", "phone"];
+
   const setFormErrorState = useSetAtom(hasFormErrors);
 
   const validateField = (field: string, value: string) => {
@@ -74,7 +76,10 @@ function PersonalInfoForm() {
 
     // Update global form error state
     const hasErrors = Object.values(newErrors).some((error) => error !== "");
-    setFormErrorState(hasErrors);
+    const hasEmptyField = Object.entries(userInfo).some(
+      ([key, value]) => requiredFields.includes(key) && value === "",
+    );
+    setFormErrorState(hasErrors || hasEmptyField);
   };
 
   return (
@@ -97,6 +102,8 @@ function PersonalInfoForm() {
             value={userInfo.name}
             onChange={handleChange}
             aria-invalid={errors.name != ""}
+            required
+            aria-required
           />
         </div>
 
@@ -117,13 +124,15 @@ function PersonalInfoForm() {
             value={userInfo.email}
             onChange={handleChange}
             aria-invalid={errors.email != ""}
+            required
+            aria-required
           />
         </div>
 
         <div className={style.formControl}>
           <div className={style.heading}>
             <label htmlFor="phone">Phone Number</label>
-            {errors.email && (
+            {errors.phone && (
               <span className={style.error} role="alert">
                 {errors.phone}
               </span>
@@ -137,6 +146,8 @@ function PersonalInfoForm() {
             value={userInfo.phone}
             onChange={handleChange}
             aria-invalid={errors.phone != ""}
+            required
+            aria-required
           />
         </div>
       </form>
