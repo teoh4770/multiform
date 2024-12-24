@@ -14,6 +14,9 @@ const userInfoAtom = atom<IUserInfo>({
   phone: "",
 });
 
+// form validation
+const hasFormErrors = atom(true);
+
 // plans
 const planAtom = atom<IPlan[]>([
   {
@@ -125,6 +128,7 @@ const summaryAtom = atom<ISummary>((get) => {
 
 export {
   isMonthlyPaymentAtom,
+  hasFormErrors,
   userInfoAtom,
   planAtom,
   selectedPlanAtom,

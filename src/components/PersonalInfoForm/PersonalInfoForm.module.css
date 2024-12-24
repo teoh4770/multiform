@@ -1,0 +1,64 @@
+.formContainer {
+  display: grid;
+  gap: var(--_gap, 1rem);
+}
+
+.formControl {
+  display: grid;
+  row-gap: 0.1875rem;
+}
+
+.heading {
+  --_fs: 0.75rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  font-size: var(--_fs, 1rem);
+  line-height: var(--_fs, 1rem);
+}
+
+.inputBox {
+  --_fs: 0.9375rem;
+  --_border-color: var(--border-color);
+
+  /* Layout */
+  width: 100%;
+
+  /* Spacing */
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+
+  /* Typography */
+  font-size: var(--_fs, 1rem);
+  font-weight: 500;
+
+  /* Colors */
+  color: var(--denim);
+
+  /* Others */
+  border: 1px solid var(--_border-color, black);
+  border-radius: 0.25rem;
+
+  /* State-based style  */
+  &[aria-invalid="false"]:not(:placeholder-shown) {
+    --_border-color: var(--green);
+    outline-color: var(--green);
+  }
+
+  &[aria-invalid="true"] {
+    --_border-color: var(--red);
+    outline-color: var(--red);
+  }
+
+  &[aria-invalid="true"]:focus {
+    --_border-color: var(--yellow);
+    outline-color: var(--yellow);
+  }
+}
+
+.error {
+  color: var(--red);
+  text-align: right;
+}
