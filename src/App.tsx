@@ -2,7 +2,7 @@ import "./App.css";
 
 import {
   AddOns,
-  FormSection,
+  FormContainer,
   PersonalInfoForm,
   Plans,
   Sidebar,
@@ -12,6 +12,8 @@ import {
 } from "./components";
 import { useState } from "react";
 import { IFormStep } from "./types";
+import { useAtomValue } from "jotai";
+import { hasFormErrors } from "./lib";
 
 const formSteps: IFormStep[] = [
   {
@@ -34,6 +36,12 @@ const formSteps: IFormStep[] = [
     subheading: "Double-check everything looks OK before confirming.",
     component: Summary,
   },
+  {
+    heading: "Thank you",
+    subheading:
+      "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
+    imageUrl: "/icon-thank-you.svg",
+  },
 ];
 
 function App() {
@@ -43,30 +51,45 @@ function App() {
   const {
     heading,
     subheading,
+    imageUrl,
     component: StepComponent,
   } = formSteps[currentStep];
 
   const getPreviousStep = () => setCurrentStep((step) => Math.max(0, step - 1));
   const getNextStep = () => setCurrentStep((step) => (step + 1) % stepCount);
 
+  // if current step is at thank you page, then hide the footer component, and set the current step to 4
+  let temp = null;
+  if (currentStep === stepCount - 1) {
+    temp = stepCount - 2;
+  }
+
   return (
     <>
       <Sidebar>
         <Steps
           stepList={["Your Info", "Select Plan", "Add-Ons", "Summary"]}
-          currentStep={currentStep}
+          currentStep={temp ?? currentStep}
         />
       </Sidebar>
 
-      <FormSection heading={heading} subheading={subheading}>
-        <StepComponent />
-      </FormSection>
+      <FormContainer
+        heading={heading}
+        subheading={subheading}
+        imageUrl={imageUrl}
+      >
+        {StepComponent && <StepComponent />}
+      </FormContainer>
 
-      <StepControl
-        currentStep={currentStep}
-        handlePreviousStep={getPreviousStep}
-        handleNextStep={getNextStep}
-      />
+      {/* Disable the next button if form validation didn't pass... */}
+      <div hidden={currentStep === stepCount - 1}>
+        <StepControl
+          currentStep={currentStep}
+          handlePreviousStep={getPreviousStep}
+          handleNextStep={getNextStep}
+          disabled={useAtomValue(hasFormErrors)}
+        />
+      </div>
     </>
   );
 }

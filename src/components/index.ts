@@ -1,8 +1,8 @@
 import { Sidebar } from "./Sidebar";
 export { Sidebar };
 
-import { FormSection } from "./ui/FormSection";
-export { FormSection };
+import { FormContainer } from "./ui/FormContainer";
+export { FormContainer };
 
 import { StepControl } from "./StepControl";
 export { StepControl };
