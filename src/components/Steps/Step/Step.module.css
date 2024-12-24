@@ -5,10 +5,10 @@
 }
 
 .info {
-  /* only show info in tablet or desktop mode */
   text-transform: uppercase;
   display: none;
 
+  /* only show info in tablet or desktop mode */
   @container style(--is-tablet: true) {
     display: inline-block;
   }

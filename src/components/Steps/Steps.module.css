@@ -1,13 +1,16 @@
 .steps {
-  /* will be removed */
-  --_space: 1rem;
-  --_flex-direction: row;
-
   display: flex;
-  flex-direction: var(--_flex-direction, row);
+  flex-direction: row;
   gap: var(--_space, 1rem);
 
   @container style(--is-tablet: true) {
-    --_flex-direction: column;
+    --_space: 2rem;
+    justify-content: space-between;
+  }
+
+  @container style(--is-desktop: true) {
+    --_space: 1.125rem;
+    flex-direction: column;
+    justify-content: unset;
   }
 }

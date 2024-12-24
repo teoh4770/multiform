@@ -64,7 +64,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="container">
       <Sidebar>
         <Steps
           stepList={["Your Info", "Select Plan", "Add-Ons", "Summary"]}
@@ -72,24 +72,28 @@ function App() {
         />
       </Sidebar>
 
-      <FormContainer
-        heading={heading}
-        subheading={subheading}
-        imageUrl={imageUrl}
-      >
-        {StepComponent && <StepComponent />}
-      </FormContainer>
-
-      {/* Disable the next button if form validation didn't pass... */}
-      <div hidden={currentStep === stepCount - 1}>
-        <StepControl
-          currentStep={currentStep}
-          handlePreviousStep={getPreviousStep}
-          handleNextStep={getNextStep}
-          disabled={useAtomValue(hasFormErrors)}
-        />
+      <div className="content">
+        <FormContainer
+          heading={heading}
+          subheading={subheading}
+          imageUrl={imageUrl}
+        >
+          {StepComponent && <StepComponent />}
+        </FormContainer>
+        {/* Disable the next button if form validation didn't pass... */}
+        <div
+          className="stepControlContainer"
+          hidden={currentStep === stepCount - 1}
+        >
+          <StepControl
+            currentStep={currentStep}
+            handlePreviousStep={getPreviousStep}
+            handleNextStep={getNextStep}
+            disabled={useAtomValue(hasFormErrors)}
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

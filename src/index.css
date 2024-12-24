@@ -10,6 +10,7 @@
   --yellow: hsl(50 80% 40%);
 
   /* Neutral colours */
+  --white: hsl(0, 0%, 100%);
   --white-1: hsl(0, 6%, 32%);
   --white-2: hsl(217, 100%, 97%);
   --grey: hsl(231, 11%, 63%);
@@ -29,20 +30,19 @@
   --is-desktop: false;
 
   /* tablet */
-  @media (width >= 500px) {
+  @media (width >= 48rem) {
     --is-mobile: false;
     --is-tablet: true;
   }
 
   /* desktop */
-  @media (width >= 1080px) {
+  @media (width >= 67.5rem) {
     --is-tablet: true;
     --is-desktop: true;
   }
 }
 
 /* CSS reset */
-
 /* Box sizing rules */
 *,
 *::before,
@@ -168,22 +168,6 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
-/* light mode */
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-/* Utility */
 
 /* Block */
 .attribution {

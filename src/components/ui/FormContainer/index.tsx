@@ -19,7 +19,7 @@ function FormContainer({
     <Card className={style.formContent}>
       {imageUrl && <img src={imageUrl} alt="" />}
 
-      <header>
+      <header className={style.header}>
         <h2 className={style.heading}>{heading}</h2>
         <div className={style.subheading} role="doc-subtitle">
           {subheading}

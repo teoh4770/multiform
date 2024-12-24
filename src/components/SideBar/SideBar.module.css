@@ -29,14 +29,14 @@
   background-size: cover;
 
   @container style(--is-tablet: true) {
-    --_justify: flex-start;
+    --_justify: center;
   }
 
   @container style(--is-desktop: true) {
-    background-image: url("/bg-sidebar-desktop.svg");
-    min-height: 100vh;
+    --_justify: flex-start;
+    max-height: 58.75rem;
     max-width: 275px;
+    background-image: url("/bg-sidebar-desktop.svg");
     background-repeat: no-repeat;
-    background-size: contain;
   }
 }
