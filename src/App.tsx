@@ -10,10 +10,9 @@ import {
   Summary,
   Steps,
 } from "./components";
-import { useState } from "react";
 import { IFormStep } from "./types";
-import { useAtomValue } from "jotai";
-import { hasFormErrors } from "./lib";
+import { useAtom, useAtomValue } from "jotai";
+import { currentStepAtom, hasFormErrors } from "./lib";
 
 const formSteps: IFormStep[] = [
   {
@@ -45,7 +44,7 @@ const formSteps: IFormStep[] = [
 ];
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom);
 
   const stepCount = formSteps.length;
   const {

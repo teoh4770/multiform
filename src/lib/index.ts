@@ -1,4 +1,5 @@
 import {
+  currentStepAtom,
   isMonthlyPaymentAtom,
   hasFormErrors,
   userInfoAtom,
@@ -10,6 +11,7 @@ import {
 } from "./atom";
 
 export {
+  currentStepAtom,
   isMonthlyPaymentAtom,
   hasFormErrors,
   userInfoAtom,

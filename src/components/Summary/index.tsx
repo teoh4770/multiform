@@ -1,14 +1,24 @@
-import { useAtomValue } from "jotai";
-import { isMonthlyPaymentAtom, summaryAtom } from "../../lib";
+import { useAtomValue, useSetAtom } from "jotai";
+import { currentStepAtom, isMonthlyPaymentAtom, summaryAtom } from "../../lib";
 import style from "./Summary.module.css";
 
 function Summary() {
   const isMonthly = useAtomValue(isMonthlyPaymentAtom);
   const summary = useAtomValue(summaryAtom);
+  const setCurrentStep = useSetAtom(currentStepAtom);
 
   const selectedPlan = summary.selectedPlan;
   const selectedAddOns = summary.selectedAddOns;
   const periodShortLabel = isMonthly ? "mo" : "yr";
+
+  const handleSubscriptionChange = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+
+    const PLAN_SECTION_STEP = 1;
+    setCurrentStep(PLAN_SECTION_STEP);
+  };
 
   return (
     <article className={style.summary} aria-label="payment summary">
@@ -19,11 +29,10 @@ function Summary() {
             <div className={style.label}>
               {selectedPlan.title} ({isMonthly ? "Monthly" : "Yearly"})
             </div>
-            {/* Link to change subscription */}
             <a
               href="#"
               className={style.link}
-              // onClick={handleSubscriptionChange}
+              onClick={handleSubscriptionChange}
             >
               Change
             </a>

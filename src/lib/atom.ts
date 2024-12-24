@@ -1,23 +1,17 @@
 import { atom } from "jotai";
 import { IAddOn, IPlan, ISummary, IUserInfo } from "../types";
 
-// primitive atom
-// readonly atom?
-
-// monthly payment
+const currentStepAtom = atom(0);
 const isMonthlyPaymentAtom = atom(true);
+const hasFormErrors = atom(true);
 
-// user info
 const userInfoAtom = atom<IUserInfo>({
   name: "",
   email: "",
   phone: "",
 });
 
-// form validation
-const hasFormErrors = atom(true);
-
-// plans
+// Plans
 const planAtom = atom<IPlan[]>([
   {
     title: "Arcade",
@@ -56,7 +50,7 @@ const selectedPlanAtom = atom((get) => {
   return plans.find((plan) => plan.selected) as IPlan;
 });
 
-// addOns
+// Add Ons
 const addOnAtom = atom<IAddOn[]>([
   {
     label: "Online Service",
@@ -95,6 +89,7 @@ const selectedAddOnAtom = atom<IAddOn[]>((get) => {
   return addOns.filter((addOn) => addOn.selected);
 });
 
+// Summary
 const totalPriceAtom = atom((get) => {
   const isMonthlyPayment = get(isMonthlyPaymentAtom);
   const selectedPlan = get(selectedPlanAtom);
@@ -113,7 +108,6 @@ const totalPriceAtom = atom((get) => {
   return planPrice + addOnPrice;
 });
 
-// summary (derived)
 const summaryAtom = atom<ISummary>((get) => {
   const selectedPlan = get(selectedPlanAtom);
   const selectedAddOns = get(selectedAddOnAtom);
@@ -127,6 +121,7 @@ const summaryAtom = atom<ISummary>((get) => {
 });
 
 export {
+  currentStepAtom,
   isMonthlyPaymentAtom,
   hasFormErrors,
   userInfoAtom,
