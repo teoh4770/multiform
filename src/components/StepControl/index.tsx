@@ -29,14 +29,22 @@ function StepControl({
         <div></div>
       )}
 
-      <Button
-        type="button"
-        variant="primary"
-        caption="Next Step"
-        clickHandler={handleNextStep}
-        disabled={disabled}
-      />
-      {/* <Button type="button" variant="confirm" caption="Confirm" /> */}
+      {currentStep <= 2 ? (
+        <Button
+          type="button"
+          variant="primary"
+          caption="Next Step"
+          clickHandler={handleNextStep}
+          disabled={disabled}
+        />
+      ) : (
+        <Button
+          type="button"
+          variant="confirm"
+          caption="Confirm"
+          clickHandler={handleNextStep}
+        />
+      )}
     </Card>
   );
 }

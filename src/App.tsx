@@ -57,7 +57,7 @@ function App() {
   const getPreviousStep = () => setCurrentStep((step) => Math.max(0, step - 1));
   const getNextStep = () => setCurrentStep((step) => (step + 1) % stepCount);
 
-  // if current step is at thank you page, then hide the footer component, and set the current step to 4
+  // If current step is at thank you page, then hide the footer component, and set the current step to 4
   let temp = null;
   if (currentStep === stepCount - 1) {
     temp = stepCount - 2;
