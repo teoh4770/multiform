@@ -16,6 +16,14 @@
   box-shadow: 0px 25px 30px -20px rgba(0, 0, 0, 0.09);
 }
 
+.formContent:has(> img) {
+  display: grid;
+  place-items: center;
+  padding-block: 5rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
 .heading {
   margin-block-end: 0.5625rem;
 }

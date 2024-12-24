@@ -1,20 +1,24 @@
 import { Card } from "../Card";
-import style from "./FormSection.module.css";
+import style from "./FormContainer.module.css";
 
 import { PropsWithChildren } from "react";
 
-interface IFormSection {
+interface IFormContainer {
   heading: string;
   subheading: string;
+  imageUrl?: string;
 }
 
-function FormSection({
+function FormContainer({
   heading,
   subheading,
+  imageUrl,
   children,
-}: PropsWithChildren<IFormSection>) {
+}: PropsWithChildren<IFormContainer>) {
   return (
     <Card className={style.formContent}>
+      {imageUrl && <img src={imageUrl} alt="" />}
+
       <header>
         <h2 className={style.heading}>{heading}</h2>
         <div className={style.subheading} role="doc-subtitle">
@@ -26,4 +30,4 @@ function FormSection({
   );
 }
 
-export { FormSection };
+export { FormContainer };
